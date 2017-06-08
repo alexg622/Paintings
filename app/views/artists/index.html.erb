@@ -1,19 +1,34 @@
 <div class="center">
 	<h1>The Paintings</h1>
 </div>
-<% if @paintings.any? %>
-	<% @paintings.each_with_index do |painting, index| %>
-	<div class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="<%= index*0.4 %>s">
-		<ul style="list-style-type: none;" class="center">
-			<li>Title: <%= link_to "#{painting.name_of_painting}", artist_painting_path(painting.artist, painting) %></li>
-			<li><%= link_to image_tag(painting.avatar_url(:thumb).to_s), artist_painting_path(painting.artist, painting) %></li>
-			
-			<li>Artist: <%= link_to "#{painting.artist.first_name} #{painting.artist.last_name}", artist_path(painting.artist) %> | Price: $<%= painting.price %></li>
-			<li>Email: <%= painting.artist.email %> | Phone: <%= painting.artist.phone %></p></li> 	
-		</ul>
-	</div>
-	<% end %>
-<% end %>
+ <div class="slider">
+    <ul class="slides">
+      <li>
+		<img src="/rmk_original1.jpg" atl="rmk_original1 feed">
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
+        <div class="caption left-align">
+          <h3>Left Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
+        <div class="caption right-align">
+          <h3>Right Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+    </ul>
+  </div>
 <% if current_user %>	
 	<%= link_to "Submit your art", new_artist_painting_path(current_user.id) %>
 <% end %>

@@ -1,5 +1,8 @@
 class PaintingsController < ApplicationController
 
+	def index
+	end 
+
 	def new 
 		if current_user
 			@painting = Painting.new 
