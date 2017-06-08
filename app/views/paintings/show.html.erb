@@ -1,6 +1,6 @@
 <div class="row center">
 	<div class="wow fadeInLeft">
-		<h1><%= image_tag(@painting.avatar_url)  %></h1>
+		<h1><%= image_tag(@painting.avatar_url(:thumb).to_l)  %></h1>
 	</div>
 </div>
 	<div class="row">
