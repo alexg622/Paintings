@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :login, :logout, :current_user
+  helper_method :login, :logout, :current_user, :the_artist
 
   def login(artist)
   	session[:artist_id] = artist.id 
@@ -16,5 +16,9 @@ class ApplicationController < ActionController::Base
   	else 
   		nil 
   	end 
+  end 
+
+  def the_artist
+    Artist.find_by(id: 1)
   end 
 end
